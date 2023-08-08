@@ -1,0 +1,45 @@
+﻿Public Class Bajar_Reportes
+    Private Sub btnAtRisk_Click(sender As Object, e As EventArgs) Handles btnAtRisk.Click
+        AtRisk()
+    End Sub
+
+    Private Sub btnExpired_Click(sender As Object, e As EventArgs) Handles btnExpired.Click
+        Expired()
+    End Sub
+
+    Private Sub btnBIMReport_Click(sender As Object, e As EventArgs) Handles btnBIMReport.Click
+        BimReport()
+    End Sub
+
+    Private Sub btnReportes_Click(sender As Object, e As EventArgs) Handles btnReportes.Click
+        Reportes()
+    End Sub
+
+    Private Sub Bajar_Reportes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        AbrirSAP()
+        Me.Activate()
+    End Sub
+
+    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        System.Windows.Forms.Application.Exit()
+    End Sub
+
+    Private Sub btnBajar_Click(sender As Object, e As EventArgs) Handles btnBajar.Click
+        AtRisk()
+        BimReport()
+        Reportes()
+        Demanda()
+        DemandaSinFecha()
+        Expired()
+        Transitos()
+    End Sub
+
+    Private Sub btnDemanda_Click(sender As Object, e As EventArgs) Handles btnDemanda.Click
+        DemandaSinFecha()
+        Demanda()
+    End Sub
+
+    Private Sub btnTransitos_Click(sender As Object, e As EventArgs) Handles btnTransitos.Click
+        Transitos()
+    End Sub
+End Class
