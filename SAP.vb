@@ -5,6 +5,10 @@ Imports Excel = Microsoft.Office.Interop.Excel
 Imports System.Threading
 
 Public Module SAP
+    Dim path As String
+    Public Sub defaultpath()
+        path = "C:\Users\villafra\Mars Inc\Planning - Cono Sur - Documentos\Autoheijunka\Reportes"
+    End Sub
     Sub AbrirSAP()
         Dim SapGui
         Dim Applic
@@ -69,7 +73,7 @@ Public Module SAP
         session.findById("wnd[0]").sendVKey(8)
         session.findById("wnd[0]/mbar/menu[0]/menu[3]/menu[1]").select
         session.findById("wnd[1]/tbar[0]/btn[0]").press
-        session.findById("wnd[1]/usr/ctxtDY_PATH").text = "C:\Users\villafra\Mars Inc\Planning - Cono Sur - Documentos\Autoheijunka\Reportes"
+        session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
         session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "At Risk AR.XLSX"
         session.findById("wnd[1]/usr/ctxtDY_PATH").setFocus
         session.findById("wnd[1]/usr/ctxtDY_PATH").caretPosition(81)
@@ -82,7 +86,7 @@ Public Module SAP
         session.findById("wnd[0]").sendVKey(8)
         session.findById("wnd[0]/mbar/menu[0]/menu[3]/menu[1]").select
         session.findById("wnd[1]/tbar[0]/btn[0]").press
-        session.findById("wnd[1]/usr/ctxtDY_PATH").text = "C:\Users\villafra\Mars Inc\Planning - Cono Sur - Documentos\Autoheijunka\Reportes"
+        session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
         session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "At Risk CH.XLSX"
         session.findById("wnd[1]/usr/ctxtDY_FILENAME").caretPosition(15)
         session.findById("wnd[1]/tbar[0]/btn[11]").press
@@ -128,7 +132,7 @@ Public Module SAP
         session.findById("wnd[0]").sendVKey(8)
         session.findById("wnd[0]/mbar/menu[0]/menu[4]/menu[1]").select
         session.findById("wnd[1]/tbar[0]/btn[0]").press
-        session.findById("wnd[1]/usr/ctxtDY_PATH").text = "C:\Users\villafra\Mars Inc\Planning - Cono Sur - Documentos\Autoheijunka\Reportes"
+        session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
         session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Stock Exprired AR.XLSX"
         session.findById("wnd[1]/usr/ctxtDY_FILENAME").caretPosition = 22
         session.findById("wnd[1]/tbar[0]/btn[11]").press
@@ -141,7 +145,7 @@ Public Module SAP
         session.findById("wnd[0]").sendVKey(8)
         session.findById("wnd[0]/mbar/menu[0]/menu[4]/menu[1]").select
         session.findById("wnd[1]/tbar[0]/btn[0]").press
-        session.findById("wnd[1]/usr/ctxtDY_PATH").text = "C:\Users\villafra\Mars Inc\Planning - Cono Sur - Documentos\Autoheijunka\Reportes"
+        session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
         session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Stock Exprired CH.XLSX"
         session.findById("wnd[1]/usr/ctxtDY_FILENAME").caretPosition = 22
         session.findById("wnd[1]/tbar[0]/btn[11]").press
@@ -185,7 +189,7 @@ Public Module SAP
         session.findById("wnd[0]").sendVKey(8)
         session.findById("wnd[0]/mbar/menu[0]/menu[4]/menu[1]").select
         session.findById("wnd[1]/tbar[0]/btn[0]").press
-        session.findById("wnd[1]/usr/ctxtDY_PATH").text = "C:\Users\villafra\Mars Inc\Planning - Cono Sur - Documentos\Autoheijunka\Reportes"
+        session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
         session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "BIM Report CH.XLSX"
         session.findById("wnd[1]/usr/ctxtDY_FILENAME").caretPosition = 18
         session.findById("wnd[1]/tbar[0]/btn[11]").press
@@ -201,7 +205,7 @@ Public Module SAP
         session.findById("wnd[0]").sendVKey(8)
         session.findById("wnd[0]/mbar/menu[0]/menu[4]/menu[1]").select
         session.findById("wnd[1]/tbar[0]/btn[0]").press
-        session.findById("wnd[1]/usr/ctxtDY_PATH").text = "C:\Users\villafra\Mars Inc\Planning - Cono Sur - Documentos\Autoheijunka\Reportes"
+        session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
         session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "BIM Report AR.XLSX"
         session.findById("wnd[1]/usr/ctxtDY_FILENAME").caretPosition = 18
         session.findById("wnd[1]/tbar[0]/btn[11]").press
@@ -248,7 +252,7 @@ Public Module SAP
             session.findById("wnd[1]/usr/btnBUTTON_1").press
             session.findById("wnd[0]/tbar[1]/btn[43]").press
             session.findById("wnd[1]/tbar[0]/btn[0]").press
-            session.findById("wnd[1]/usr/ctxtDY_PATH").text = "C:\Users\villafra\Mars Inc\Planning - Cono Sur - Documentos\Autoheijunka\Reportes\"
+            session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
             session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Prod Total.XLSX"
             session.findById("wnd[1]/tbar[0]/btn[11]").press
             session.findById("wnd[0]/tbar[0]/btn[3]").press
@@ -260,7 +264,7 @@ Public Module SAP
             session.findById("wnd[1]/usr/btnBUTTON_1").press
             session.findById("wnd[0]/tbar[1]/btn[43]").press
             session.findById("wnd[1]/tbar[0]/btn[0]").press
-            session.findById("wnd[1]/usr/ctxtDY_PATH").text = "C:\Users\villafra\Mars Inc\Planning - Cono Sur - Documentos\Autoheijunka\Reportes\"
+            session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
             session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Prod WET.XLSX"
             session.findById("wnd[1]/tbar[0]/btn[11]").press
             session.findById("wnd[0]/tbar[0]/btn[3]").press
@@ -276,7 +280,7 @@ Public Module SAP
             session.findById("wnd[1]/usr/btnBUTTON_1").press
             session.findById("wnd[0]/tbar[1]/btn[43]").press
             session.findById("wnd[1]/tbar[0]/btn[0]").press
-            session.findById("wnd[1]/usr/ctxtDY_PATH").text = "C:\Users\villafra\Mars Inc\Planning - Cono Sur - Documentos\Autoheijunka\Reportes"
+            session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
             session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Prod C&T.XLSX"
             session.findById("wnd[1]/usr/ctxtDY_FILENAME").caretPosition = 13
             session.findById("wnd[1]/tbar[0]/btn[11]").press
@@ -329,7 +333,7 @@ Public Module SAP
         session.findById("wnd[0]/mbar/menu[0]/menu[3]/menu[1]").select
         session.findById("wnd[1]/usr/cmbG_LISTBOX").setFocus
         session.findById("wnd[1]/tbar[0]/btn[0]").press
-        session.findById("wnd[1]/usr/ctxtDY_PATH").text = "C:\Users\villafra\Mars Inc\Planning - Cono Sur - Documentos\Autoheijunka\Reportes\"
+        session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
         session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Demanda.XLSX"
         session.findById("wnd[1]/usr/ctxtDY_FILENAME").caretPosition = 12
         session.findById("wnd[1]/tbar[0]/btn[11]").press
@@ -377,7 +381,7 @@ Public Module SAP
         session.findById("wnd[1]/usr/ssubD0500_SUBSCREEN:SAPLSLVC_DIALOG:0501/cntlG51_CONTAINER/shellcont/shell").clickCurrentCell
         session.findById("wnd[0]/mbar/menu[0]/menu[5]/menu[1]").select
         session.findById("wnd[1]/tbar[0]/btn[0]").press
-        session.findById("wnd[1]/usr/ctxtDY_PATH").text = "C:\Users\villafra\Mars Inc\Planning - Cono Sur - Documentos\Autoheijunka\Reportes\"
+        session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
         session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Demanda sin Fecha.XLSX"
         session.findById("wnd[1]/usr/ctxtDY_FILENAME").caretPosition = 22
         session.findById("wnd[1]").sendVKey(11)
@@ -421,7 +425,7 @@ Public Module SAP
         session.findById("wnd[0]/mbar/menu[0]/menu[1]/menu[1]").select
         session.findById("wnd[1]/usr/cmbG_LISTBOX").setFocus
         session.findById("wnd[1]/tbar[0]/btn[0]").press
-        session.findById("wnd[1]/usr/ctxtDY_PATH").text = "C:\Users\villafra\Mars Inc\Planning - Cono Sur - Documentos\Autoheijunka\Reportes\"
+        session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
         session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Transitos AR06.XLSX"
         session.findById("wnd[1]").sendVKey(11)
         session.findById("wnd[0]/tbar[0]/btn[15]").press
@@ -433,7 +437,7 @@ Public Module SAP
         session.findById("wnd[0]/mbar/menu[0]/menu[1]/menu[1]").select
         session.findById("wnd[1]/usr/cmbG_LISTBOX").setFocus
         session.findById("wnd[1]/tbar[0]/btn[0]").press
-        session.findById("wnd[1]/usr/ctxtDY_PATH").text = "C:\Users\villafra\Mars Inc\Planning - Cono Sur - Documentos\Autoheijunka\Reportes\"
+        session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
         session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Transitos AR01.XLSX"
         session.findById("wnd[1]").sendVKey(11)
 
