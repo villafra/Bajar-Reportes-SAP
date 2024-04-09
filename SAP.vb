@@ -19,10 +19,13 @@ Public Module SAP
 
 
             Try
+
                 SapGui = GetObject("SAPGUI")
                 Applic = SapGui.GetScriptingEngine
+                If Applic.Connections.Count > 0 Then
+                    Exit Sub
+                End If
                 connection = Applic.OpenConnection("TRINITY: ERP R/3 Production[SSO]", True)
-
                 Exit Sub
             Catch ex As Exception
                 Shell("C:\Program Files (x86)\SAP\FrontEnd\SAPgui\saplogon.exe", vbNormalFocus)
@@ -40,6 +43,27 @@ Public Module SAP
             Exit Sub
         End Try
 
+
+    End Sub
+
+    Sub CerrarSAP()
+        Dim SapGui
+        Dim Applic
+        Dim connection
+
+        SapGui = GetObject("SAPGUI")
+        Applic = SapGui.GetScriptingEngine
+        connection = Applic.Children(0)
+
+        If Not connection Is Nothing Then
+            connection.CloseSession
+            connection = Nothing
+        End If
+
+        If Not Applic Is Nothing Then
+            Applic.Quit
+            Applic = Nothing
+        End If
 
     End Sub
     Sub AtRisk()
@@ -255,10 +279,11 @@ Public Module SAP
             session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
             session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Prod Total.XLSX"
             session.findById("wnd[1]/tbar[0]/btn[11]").press
+
             session.findById("wnd[0]/tbar[0]/btn[3]").press
             session.findById("wnd[0]").sendVKey(17)
             session.findById("wnd[1]").sendVKey(8)
-            session.findById("wnd[1]/usr/cntlALV_CONTAINER_1/shellcont/shell").selectedRows = "2"
+            session.findById("wnd[1]/usr/cntlALV_CONTAINER_1/shellcont/shell").selectedRows = "3"
             session.findById("wnd[1]").sendVKey(2)
             session.findById("wnd[0]").sendVKey(8)
             session.findById("wnd[1]/usr/btnBUTTON_1").press
@@ -267,23 +292,24 @@ Public Module SAP
             session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
             session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Prod WET.XLSX"
             session.findById("wnd[1]/tbar[0]/btn[11]").press
-            session.findById("wnd[0]/tbar[0]/btn[3]").press
-            session.findById("wnd[0]").sendVKey(17)
-            session.findById("wnd[1]/usr/txtENAME-LOW").text = "vilagis"
-            session.findById("wnd[1]/usr/txtENAME-LOW").setFocus
-            session.findById("wnd[1]/usr/txtENAME-LOW").caretPosition = 7
-            session.findById("wnd[1]").sendVKey(8)
-            session.findById("wnd[1]/usr/cntlALV_CONTAINER_1/shellcont/shell").currentCellRow = 1
-            session.findById("wnd[1]/usr/cntlALV_CONTAINER_1/shellcont/shell").selectedRows = "1"
-            session.findById("wnd[1]/usr/cntlALV_CONTAINER_1/shellcont/shell").doubleClickCurrentCell
-            session.findById("wnd[0]").sendVKey(8)
-            session.findById("wnd[1]/usr/btnBUTTON_1").press
-            session.findById("wnd[0]/tbar[1]/btn[43]").press
-            session.findById("wnd[1]/tbar[0]/btn[0]").press
-            session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
-            session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Prod C&T.XLSX"
-            session.findById("wnd[1]/usr/ctxtDY_FILENAME").caretPosition = 13
-            session.findById("wnd[1]/tbar[0]/btn[11]").press
+
+            'session.findById("wnd[0]/tbar[0]/btn[3]").press
+            'session.findById("wnd[0]").sendVKey(17)
+            'session.findById("wnd[1]/usr/txtENAME-LOW").text = "vilagis"
+            'session.findById("wnd[1]/usr/txtENAME-LOW").setFocus
+            'session.findById("wnd[1]/usr/txtENAME-LOW").caretPosition = 7
+            'session.findById("wnd[1]").sendVKey(8)
+            'session.findById("wnd[1]/usr/cntlALV_CONTAINER_1/shellcont/shell").currentCellRow = 1
+            'session.findById("wnd[1]/usr/cntlALV_CONTAINER_1/shellcont/shell").selectedRows = "1"
+            'session.findById("wnd[1]/usr/cntlALV_CONTAINER_1/shellcont/shell").doubleClickCurrentCell
+            'session.findById("wnd[0]").sendVKey(8)
+            'session.findById("wnd[1]/usr/btnBUTTON_1").press
+            'session.findById("wnd[0]/tbar[1]/btn[43]").press
+            'session.findById("wnd[1]/tbar[0]/btn[0]").press
+            'session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
+            'session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Prod C&T.XLSX"
+            'session.findById("wnd[1]/usr/ctxtDY_FILENAME").caretPosition = 13
+            'session.findById("wnd[1]/tbar[0]/btn[11]").press
 
             app.HistoryEnabled = True
         Catch
@@ -294,8 +320,8 @@ Public Module SAP
         CerrarExcel("Prod Total.XLSX")
         Thread.Sleep(6000)
         CerrarExcel("Prod WET.XLSX")
-        Thread.Sleep(8000)
-        CerrarExcel("Prod C&T.XLSX")
+        'Thread.Sleep(8000)
+        'CerrarExcel("Prod C&T.XLSX")
 
 
 
@@ -375,9 +401,9 @@ Public Module SAP
         session.findById("wnd[1]").sendVKey(8)
         session.findById("wnd[0]").sendVKey(8)
         session.findById("wnd[0]/tbar[1]/btn[33]").press
-        session.findById("wnd[1]/usr/ssubD0500_SUBSCREEN:SAPLSLVC_DIALOG:0501/cntlG51_CONTAINER/shellcont/shell").currentCellRow = 31
+        session.findById("wnd[1]/usr/ssubD0500_SUBSCREEN:SAPLSLVC_DIALOG:0501/cntlG51_CONTAINER/shellcont/shell").currentCellRow = 33
         session.findById("wnd[1]/usr/ssubD0500_SUBSCREEN:SAPLSLVC_DIALOG:0501/cntlG51_CONTAINER/shellcont/shell").firstVisibleRow = 26
-        session.findById("wnd[1]/usr/ssubD0500_SUBSCREEN:SAPLSLVC_DIALOG:0501/cntlG51_CONTAINER/shellcont/shell").selectedRows = "31"
+        session.findById("wnd[1]/usr/ssubD0500_SUBSCREEN:SAPLSLVC_DIALOG:0501/cntlG51_CONTAINER/shellcont/shell").selectedRows = "33"
         session.findById("wnd[1]/usr/ssubD0500_SUBSCREEN:SAPLSLVC_DIALOG:0501/cntlG51_CONTAINER/shellcont/shell").clickCurrentCell
         session.findById("wnd[0]/mbar/menu[0]/menu[5]/menu[1]").select
         session.findById("wnd[1]/tbar[0]/btn[0]").press

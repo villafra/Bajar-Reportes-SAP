@@ -17,6 +17,8 @@
     Private Sub btnReportes_Click(sender As Object, e As EventArgs) Handles btnReportes.Click
         Reportes()
         MenuPrincipal()
+        CerrarSAP()
+        Me.Close()
     End Sub
 
     Private Sub Bajar_Reportes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -38,6 +40,8 @@
         Expired()
         Transitos()
         MenuPrincipal()
+        CerrarSAP()
+        Me.Close()
     End Sub
 
     Private Sub btnDemanda_Click(sender As Object, e As EventArgs) Handles btnDemanda.Click
