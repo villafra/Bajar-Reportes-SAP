@@ -56,7 +56,7 @@ Public Module SAP
         connection = Applic.Children(0)
 
         If Not connection Is Nothing Then
-            connection.CloseSession
+            connection.CloseSession("ses[0]")
             connection = Nothing
         End If
 
