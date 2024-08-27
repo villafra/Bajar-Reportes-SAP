@@ -280,18 +280,18 @@ Public Module SAP
             session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Prod Total.XLSX"
             session.findById("wnd[1]/tbar[0]/btn[11]").press
 
-            session.findById("wnd[0]/tbar[0]/btn[3]").press
-            session.findById("wnd[0]").sendVKey(17)
-            session.findById("wnd[1]").sendVKey(8)
-            session.findById("wnd[1]/usr/cntlALV_CONTAINER_1/shellcont/shell").selectedRows = "3"
-            session.findById("wnd[1]").sendVKey(2)
-            session.findById("wnd[0]").sendVKey(8)
-            session.findById("wnd[1]/usr/btnBUTTON_1").press
-            session.findById("wnd[0]/tbar[1]/btn[43]").press
-            session.findById("wnd[1]/tbar[0]/btn[0]").press
-            session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
-            session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Prod WET.XLSX"
-            session.findById("wnd[1]/tbar[0]/btn[11]").press
+            'session.findById("wnd[0]/tbar[0]/btn[3]").press
+            'session.findById("wnd[0]").sendVKey(17)
+            'session.findById("wnd[1]").sendVKey(8)
+            'session.findById("wnd[1]/usr/cntlALV_CONTAINER_1/shellcont/shell").selectedRows = "3"
+            'session.findById("wnd[1]").sendVKey(2)
+            'session.findById("wnd[0]").sendVKey(8)
+            'session.findById("wnd[1]/usr/btnBUTTON_1").press
+            'session.findById("wnd[0]/tbar[1]/btn[43]").press
+            'session.findById("wnd[1]/tbar[0]/btn[0]").press
+            'session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
+            'session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Prod WET.XLSX"
+            'session.findById("wnd[1]/tbar[0]/btn[11]").press
 
             'session.findById("wnd[0]/tbar[0]/btn[3]").press
             'session.findById("wnd[0]").sendVKey(17)
@@ -314,8 +314,8 @@ Public Module SAP
             app.HistoryEnabled = True
             Thread.Sleep(6000)
             CerrarExcel("Prod Total.XLSX")
-            Thread.Sleep(6000)
-            CerrarExcel("Prod WET.XLSX")
+            'Thread.Sleep(6000)
+            'CerrarExcel("Prod WET.XLSX")
         Catch
             Exit Sub
         End Try
@@ -428,10 +428,8 @@ Public Module SAP
                 Throw New Exception
             End If
 
-
-
             app.HistoryEnabled = True
-            Thread.Sleep(8000)
+            Thread.Sleep(3000)
             CerrarExcel("Demanda sin Fecha.XLSX")
         Catch
             Exit Sub

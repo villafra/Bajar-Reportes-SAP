@@ -32,7 +32,7 @@
     End Sub
 
     Private Sub btnBajar_Click(sender As Object, e As EventArgs) Handles btnBajar.Click
-        AtRisk()
+        'AtRisk()
         BimReport()
         Reportes()
         Demanda()
