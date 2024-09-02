@@ -425,11 +425,11 @@ Public Module SAP
                 session.findById("wnd[1]/usr/ctxtDY_FILENAME").caretPosition = 22
                 session.findById("wnd[1]").sendVKey(11)
             Else
-                Throw New Exception
+                Exit Sub
             End If
 
             app.HistoryEnabled = True
-            Thread.Sleep(3000)
+            Thread.Sleep(5000)
             CerrarExcel("Demanda sin Fecha.XLSX")
         Catch
             Exit Sub
