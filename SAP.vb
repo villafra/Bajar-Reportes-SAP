@@ -313,6 +313,10 @@ Public Module SAP
             'session.findById("wnd[1]/tbar[0]/btn[11]").press
 
             app.HistoryEnabled = True
+            Thread.Sleep(6000)
+            CerrarExcel("Prod Total.XLSX")
+            'Thread.Sleep(6000)
+            'CerrarExcel("Prod WET.XLSX")
         Catch
             Exit Sub
         End Try
@@ -323,9 +327,6 @@ Public Module SAP
         'CerrarExcel("Prod WET.XLSX")
         'Thread.Sleep(8000)
         'CerrarExcel("Prod C&T.XLSX")
-
-
-
     End Sub
     Sub Demanda()
         Dim SapGuiAuto As Object
@@ -373,7 +374,9 @@ Public Module SAP
             MsgBox(ex.Message)
         End Try
 
-
+        Catch
+        Exit Sub
+        End Try
 
     End Sub
     Sub DemandaSinFecha()
@@ -381,6 +384,10 @@ Public Module SAP
         Dim app As Object
         Dim connection As Object
         Dim session As Object
+        Dim i As Integer
+        Dim index As Integer
+        Dim rowCount As Integer
+        Dim SAPGrid As Object
 
         Dim connectionNumber As Integer = 0
         Dim sessionNumber As Integer = 0
