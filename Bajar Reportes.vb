@@ -22,6 +22,7 @@
     End Sub
 
     Private Sub Bajar_Reportes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        IniciarToolTips()
         AbrirSAP()
         Me.Activate()
         defaultpath()
@@ -32,7 +33,7 @@
     End Sub
 
     Private Sub btnBajar_Click(sender As Object, e As EventArgs) Handles btnBajar.Click
-        AtRisk()
+        'AtRisk()
         BimReport()
         Reportes()
         Demanda()
@@ -54,4 +55,14 @@
         Transitos()
         MenuPrincipal()
     End Sub
+
+    Public Sub IniciarToolTips()
+        TTAtRisk.SetToolTip(btnAtRisk, "Variantes: En Riesgo para Argentina, En Riesgo CH para Chile. ")
+        TTStockExpired.SetToolTip(btnExpired, "Variantes: STOCK EXP ARG para Argentina, STOCK EXP CH para Chile.")
+        TTBimReport.SetToolTip(btnBIMReport, "Variantes: BIMREPORT para Argentina en la transacción BIM Report Argentina, BIM REPORT CHI para Chile en la transacción BIM Report")
+        TTDemanda.SetToolTip(btnDemanda, "Variantes: Para Demanda ON Hand y Demanda sin Fecha, la unica variante en el usuario PAISAGU.")
+        TTProduction.SetToolTip(btnReportes, "Variantes: PRODU MER para Produccion Total, PRODU WET para Producción de WET")
+        TTTransitos.SetToolTip(btnTransitos, "Para Transitos AR06.xlsx sólo se coloca centro de AR01 a AR06, y para tránsitos AR01.xlsx se coloca centro de AR06 a AR01")
+    End Sub
+
 End Class

@@ -22,6 +22,7 @@ Partial Class Bajar_Reportes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Bajar_Reportes))
         Me.btnAtRisk = New System.Windows.Forms.Button()
         Me.btnExpired = New System.Windows.Forms.Button()
@@ -31,6 +32,12 @@ Partial Class Bajar_Reportes
         Me.btnBajar = New System.Windows.Forms.Button()
         Me.btnDemanda = New System.Windows.Forms.Button()
         Me.btnTransitos = New System.Windows.Forms.Button()
+        Me.TTAtRisk = New System.Windows.Forms.ToolTip(Me.components)
+        Me.TTStockExpired = New System.Windows.Forms.ToolTip(Me.components)
+        Me.TTBimReport = New System.Windows.Forms.ToolTip(Me.components)
+        Me.TTProduction = New System.Windows.Forms.ToolTip(Me.components)
+        Me.TTDemanda = New System.Windows.Forms.ToolTip(Me.components)
+        Me.TTTransitos = New System.Windows.Forms.ToolTip(Me.components)
         Me.SuspendLayout()
         '
         'btnAtRisk
@@ -140,4 +147,10 @@ Partial Class Bajar_Reportes
     Friend WithEvents btnBajar As Button
     Friend WithEvents btnDemanda As Button
     Friend WithEvents btnTransitos As Button
+    Friend WithEvents TTAtRisk As ToolTip
+    Friend WithEvents TTStockExpired As ToolTip
+    Friend WithEvents TTBimReport As ToolTip
+    Friend WithEvents TTProduction As ToolTip
+    Friend WithEvents TTDemanda As ToolTip
+    Friend WithEvents TTTransitos As ToolTip
 End Class

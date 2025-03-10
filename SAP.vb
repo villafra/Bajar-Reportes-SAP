@@ -7,8 +7,9 @@ Imports System.Threading
 Public Module SAP
     Dim path As String
     Public Sub defaultpath()
-        path = "C:\Users\villafra\Mars Inc\Planning - Cono Sur - Documentos\Autoheijunka\Reportes"
+        path = "C:\Users\paisagu\Mars Inc\Planning South LATAM - Documents\Reportes\Diarios (SAP)"
     End Sub
+
     Sub AbrirSAP()
         Dim SapGui
         Dim Applic
@@ -270,7 +271,7 @@ Public Module SAP
             session.findById("wnd[0]").sendVKey(0)
             session.findById("wnd[0]").sendVKey(17)
             session.findById("wnd[1]").sendVKey(8)
-            session.findById("wnd[1]/usr/cntlALV_CONTAINER_1/shellcont/shell").selectedRows = "1"
+            session.findById("wnd[1]/usr/cntlALV_CONTAINER_1/shellcont/shell").selectedRows = "0"
             session.findById("wnd[1]").sendVKey(2)
             session.findById("wnd[0]").sendVKey(8)
             session.findById("wnd[1]/usr/btnBUTTON_1").press
@@ -280,18 +281,18 @@ Public Module SAP
             session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Prod Total.XLSX"
             session.findById("wnd[1]/tbar[0]/btn[11]").press
 
-            session.findById("wnd[0]/tbar[0]/btn[3]").press
-            session.findById("wnd[0]").sendVKey(17)
-            session.findById("wnd[1]").sendVKey(8)
-            session.findById("wnd[1]/usr/cntlALV_CONTAINER_1/shellcont/shell").selectedRows = "3"
-            session.findById("wnd[1]").sendVKey(2)
-            session.findById("wnd[0]").sendVKey(8)
-            session.findById("wnd[1]/usr/btnBUTTON_1").press
-            session.findById("wnd[0]/tbar[1]/btn[43]").press
-            session.findById("wnd[1]/tbar[0]/btn[0]").press
-            session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
-            session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Prod WET.XLSX"
-            session.findById("wnd[1]/tbar[0]/btn[11]").press
+            'session.findById("wnd[0]/tbar[0]/btn[3]").press
+            'session.findById("wnd[0]").sendVKey(17)
+            'session.findById("wnd[1]").sendVKey(8)
+            'session.findById("wnd[1]/usr/cntlALV_CONTAINER_1/shellcont/shell").selectedRows = "1"
+            'session.findById("wnd[1]").sendVKey(2)
+            'session.findById("wnd[0]").sendVKey(8)
+            'session.findById("wnd[1]/usr/btnBUTTON_1").press
+            'session.findById("wnd[0]/tbar[1]/btn[43]").press
+            'session.findById("wnd[1]/tbar[0]/btn[0]").press
+            'session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
+            'session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Prod WET.XLSX"
+            'session.findById("wnd[1]/tbar[0]/btn[11]").press
 
             'session.findById("wnd[0]/tbar[0]/btn[3]").press
             'session.findById("wnd[0]").sendVKey(17)
@@ -318,8 +319,8 @@ Public Module SAP
 
         Thread.Sleep(6000)
         CerrarExcel("Prod Total.XLSX")
-        Thread.Sleep(6000)
-        CerrarExcel("Prod WET.XLSX")
+        'Thread.Sleep(6000)
+        'CerrarExcel("Prod WET.XLSX")
         'Thread.Sleep(8000)
         'CerrarExcel("Prod C&T.XLSX")
 
@@ -347,27 +348,30 @@ Public Module SAP
             Exit Sub
         End Try
 
-        session.findById("wnd[0]").maximize
-        session.findById("wnd[0]/tbar[0]/okcd").text = "/nzsd_cart_pedidos"
-        session.findById("wnd[0]").sendVKey(0)
-        session.findById("wnd[0]").sendVKey(17)
-        session.findById("wnd[1]").sendVKey(8)
-        session.findById("wnd[0]/usr/ctxtS_ERDAT-HIGH").text = DateTime.Today.ToString("ddMMyy")
-        session.findById("wnd[0]/usr/ctxtS_ERDAT-HIGH").setFocus
-        session.findById("wnd[0]/usr/ctxtS_ERDAT-HIGH").caretPosition = 6
-        session.findById("wnd[0]").sendVKey(8)
-        session.findById("wnd[0]/mbar/menu[0]/menu[3]/menu[1]").select
-        session.findById("wnd[1]/usr/cmbG_LISTBOX").setFocus
-        session.findById("wnd[1]/tbar[0]/btn[0]").press
-        session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
-        session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Demanda.XLSX"
-        session.findById("wnd[1]/usr/ctxtDY_FILENAME").caretPosition = 12
-        session.findById("wnd[1]/tbar[0]/btn[11]").press
+        Try
 
-        app.HistoryEnabled = True
+            session.findById("wnd[0]").maximize
+            session.findById("wnd[0]/tbar[0]/okcd").text = "/nzsd_cart_pedidos"
+            session.findById("wnd[0]").sendVKey(0)
+            session.findById("wnd[0]").sendVKey(17)
+            session.findById("wnd[1]").sendVKey(8)
+            session.findById("wnd[0]/usr/ctxtS_ERDAT-HIGH").text = DateTime.Today.ToString("ddMMyy")
+            session.findById("wnd[0]/usr/ctxtS_ERDAT-HIGH").setFocus
+            session.findById("wnd[0]/usr/ctxtS_ERDAT-HIGH").caretPosition = 6
+            session.findById("wnd[0]").sendVKey(8)
+            session.findById("wnd[0]/mbar/menu[0]/menu[3]/menu[1]").select
+            session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
+            session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Demanda.XLSX"
+            session.findById("wnd[1]/usr/ctxtDY_FILENAME").caretPosition = 12
+            session.findById("wnd[1]/tbar[0]/btn[11]").press
 
-        Thread.Sleep(8000)
-        CerrarExcel("Demanda.XLSX")
+            app.HistoryEnabled = True
+
+            Thread.Sleep(8000)
+            CerrarExcel("Demanda.XLSX")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
 
 
 
@@ -392,30 +396,55 @@ Public Module SAP
         Catch
             Exit Sub
         End Try
+        Try
+            session.findById("wnd[0]").maximize
+            session.findById("wnd[0]/tbar[0]/okcd").text = "/nVL06O"
+            session.findById("wnd[0]").sendVKey(0)
+            session.findById("wnd[0]/usr/btnBUTTON6").press
+            session.findById("wnd[0]").sendVKey(17)
+            session.findById("wnd[1]/usr/txtENAME-LOW").Text = "villafra"
+            session.findById("wnd[1]").sendVKey(8)
 
-        session.findById("wnd[0]").maximize
-        session.findById("wnd[0]/tbar[0]/okcd").text = "/nVL06O"
-        session.findById("wnd[0]").sendVKey(0)
-        session.findById("wnd[0]/usr/btnBUTTON6").press
-        session.findById("wnd[0]").sendVKey(17)
-        session.findById("wnd[1]").sendVKey(8)
-        session.findById("wnd[0]").sendVKey(8)
-        session.findById("wnd[0]/tbar[1]/btn[33]").press
-        session.findById("wnd[1]/usr/ssubD0500_SUBSCREEN:SAPLSLVC_DIALOG:0501/cntlG51_CONTAINER/shellcont/shell").currentCellRow = 33
-        session.findById("wnd[1]/usr/ssubD0500_SUBSCREEN:SAPLSLVC_DIALOG:0501/cntlG51_CONTAINER/shellcont/shell").firstVisibleRow = 26
-        session.findById("wnd[1]/usr/ssubD0500_SUBSCREEN:SAPLSLVC_DIALOG:0501/cntlG51_CONTAINER/shellcont/shell").selectedRows = "33"
-        session.findById("wnd[1]/usr/ssubD0500_SUBSCREEN:SAPLSLVC_DIALOG:0501/cntlG51_CONTAINER/shellcont/shell").clickCurrentCell
-        session.findById("wnd[0]/mbar/menu[0]/menu[5]/menu[1]").select
-        session.findById("wnd[1]/tbar[0]/btn[0]").press
-        session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
-        session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Demanda sin Fecha.XLSX"
-        session.findById("wnd[1]/usr/ctxtDY_FILENAME").caretPosition = 22
-        session.findById("wnd[1]").sendVKey(11)
+            session.findById("wnd[0]").sendVKey(8)
+            ' session.findById("wnd[0]/usr/lbl[25,5]").SetFocus
+            'session.findById("wnd[0]/usr/lbl[25,5]").caretPosition = 2
+            'session.findById("wnd[0]/mbar/menu[3]/menu[2]/menu[1]").Select
+            session.findById("wnd[0]/tbar[1]/btn[33]").press
+            session.findById("wnd[1]/tbar[0]/btn[71]").press
+            session.findById("wnd[2]/usr/chkSCAN_STRING-START").selected = False
+            session.findById("wnd[2]/usr/chkSCAN_STRING-RANGE").selected = True
+            'session.findById("wnd[1]/tbar[0]/btn[71]").press
+            session.findById("wnd[2]/usr/txtRSYSF-STRING").Text = "FRANCO"
+            session.findById("wnd[2]/usr/txtRSYSF-STRING").caretPosition = 10
+            session.findById("wnd[2]/tbar[0]/btn[0]").press
+            session.findById("wnd[3]/usr/lbl[2,2]").SetFocus
+            session.findById("wnd[3]/usr/lbl[2,2]").caretPosition = 7
+            session.findById("wnd[3]").sendVKey(2)
+            session.findById("wnd[1]/tbar[0]/btn[0]").press
+            session.findById("wnd[0]/mbar/menu[0]/menu[5]/menu[1]").Select
+            session.findById("wnd[1]/usr/ctxtDY_PATH").Text = path
+            session.findById("wnd[1]/usr/ctxtDY_FILENAME").Text = "Demanda sin Fecha.XLSX"
+            session.findById("wnd[1]/usr/ctxtDY_FILENAME").caretPosition = 22
+            session.findById("wnd[1]/tbar[0]/btn[11]").press
 
-        app.HistoryEnabled = True
+            'session.findById("wnd[0]/tbar[1]/btn[33]").press
+            'session.findById("wnd[1]/usr/lbl[1,17]").setFocus
+            'session.findById("wnd[1]/usr/lbl[1,17]").caretPosition = 2
+            'session.findById("wnd[1]").sendVKey(2)
+            'session.findById("wnd[0]/mbar/menu[0]/menu[5]/menu[1]").select
+            'session.findById("wnd[1]/tbar[0]/btn[0]").press
+            'session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
+            'session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Demanda sin Fecha.XLSX"
+            'session.findById("wnd[1]/usr/ctxtDY_FILENAME").caretPosition = 22
+            'session.findById("wnd[1]").sendVKey(11)
 
-        Thread.Sleep(8000)
-        CerrarExcel("Demanda sin Fecha.XLSX")
+            app.HistoryEnabled = True
+
+            Thread.Sleep(8000)
+            CerrarExcel("Demanda sin Fecha.XLSX")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     Sub Transitos()
@@ -449,8 +478,6 @@ Public Module SAP
         session.findById("wnd[0]").sendVKey(8)
         session.findById("wnd[0]/tbar[1]/btn[43]").press
         session.findById("wnd[0]/mbar/menu[0]/menu[1]/menu[1]").select
-        session.findById("wnd[1]/usr/cmbG_LISTBOX").setFocus
-        session.findById("wnd[1]/tbar[0]/btn[0]").press
         session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
         session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Transitos AR06.XLSX"
         session.findById("wnd[1]").sendVKey(11)
@@ -461,8 +488,6 @@ Public Module SAP
         session.findById("wnd[0]").sendVKey(8)
         session.findById("wnd[0]/tbar[1]/btn[43]").press
         session.findById("wnd[0]/mbar/menu[0]/menu[1]/menu[1]").select
-        session.findById("wnd[1]/usr/cmbG_LISTBOX").setFocus
-        session.findById("wnd[1]/tbar[0]/btn[0]").press
         session.findById("wnd[1]/usr/ctxtDY_PATH").text = path
         session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "Transitos AR01.XLSX"
         session.findById("wnd[1]").sendVKey(11)
